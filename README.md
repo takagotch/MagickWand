@@ -10,13 +10,25 @@ http://www.imagemagick.org/script/magick-wand.php
 // ImageMagick/MagickWand/tests/script-token-test.c
 #include <stdio.h>
 #include <string.h>
-#
+#include <stdlib.h>
+#include <assert.h>
+#include <errno.h>
 
 #define MagickPathExtent 4096
-#
+#define MagickFalse 0
+#define MagicTrue 1
+#define MagicBooleanType int
 
 #define AcquireMagickMemory(s) malloc(s)
-#
+#define RelinquishMagicMemory(p) (free(p), NULL)
+#define ResizeMagickMemory(p,s) realloc(p,s)
+#define ResetMagickMemory(p,b,s) memset(p,b,s)
+#define StringToLong(s) strtol(s,(char **) NULL,10)
+#define LocaleCompare(p,q) strcasecmp(p,q)
+#define LocaleNCompare(p,q,l) strncasecmp(p,q,l)
+#define WandSignature 0xabacadaUL
+#define fopen_utf8(p,q) fopen(p,q)
+#define WandExport
 
 #define SCRIPT_TOKEN_TESTING
 #include "../script-token.h"
