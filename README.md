@@ -2,6 +2,8 @@
 ---
 https://github.com/ImageMagick/ImageMagick/tree/master/MagickWand
 
+https://github.com/topics/magickwand
+
 http://www.imagemagick.org/script/magick-wand.php
 
 ```c
